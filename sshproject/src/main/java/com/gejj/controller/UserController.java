@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gejj.model.User;
@@ -87,5 +88,15 @@ public class UserController {
     public String saveEdit(@ModelAttribute("userAttribute") User user,@PathVariable Long userid){
         userService.update(user);
         return "redirect:/user/list";
+    }
+    
+    
+    @RequestMapping(value="/test")
+    @ResponseBody
+    public User test(){
+      User user=new User();
+      user.setName("jack");
+      user.setAge(10);
+      return user;
     }
 }
