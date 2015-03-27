@@ -1,0 +1,35 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:oauth2="http://www.springframework.org/schema/security/oauth2"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd						
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+						http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2.xsd">
+
+	<http pattern="/manager/**" security="none"></http>
+	<http pattern="/pub/**" security="none"></http>
+	
+	<http pattern="/interfaceUrl/**" security="none"></http>
+	<http pattern="/service/**" security="none"></http>
+	
+	
+	<http pattern="/portal/**" security="none"></http>
+	
+	
+	 <http auto-config="true">
+		<remember-me data-source-ref="dataSource"/>
+		<form-login login-page="/pub/index/home" authentication-success-handler-ref="demologinHandler"/>
+		<logout delete-cookies="JSESSIONID" logout-success-url="/pub/index/home"/>
+		<session-management>
+			<concurrency-control session-registry-alias="sessionManager" />
+		</session-management>
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider user-service-ref="userRepository">
+			<password-encoder hash="sha">
+				<salt-source user-property="id"/>
+			</password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+	
+</beans:beans>

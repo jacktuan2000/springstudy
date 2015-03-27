@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+<a onclick='Fsns.utils.toPage(2,{groupId:"${groupId}",checkGroupStatus:true});'>${velocityFunctions.getGroupName(${groupId})}</a>商圈管理员设置您为商圈管理员！  
+</div>
+</body>
+</html>

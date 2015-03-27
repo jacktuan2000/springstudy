@@ -1,0 +1,8 @@
+<!-- 邮件邀请 -->
+<html>
+<body>
+<div>
+<a onclick='Fsns.utils.toPage(2,{groupId:"${groupId}",checkGroupStatus:true});'>${velocityFunctions.getGroupName(${groupId})}</a>商圈管理员拒绝了您邀请${email}</a>的申请！  
+</div>
+</body>
+</html>

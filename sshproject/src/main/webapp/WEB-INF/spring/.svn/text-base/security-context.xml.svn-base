@@ -1,0 +1,117 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:oauth2="http://www.springframework.org/schema/security/oauth2"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd						
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+						http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2.xsd">
+
+	<http pattern="/service/user/login.json" security="none"></http>
+	<http pattern="/service/user/regist.json" security="none"></http>
+	<http pattern="/service/user/active.json" security="none"></http>
+	<http pattern="/service/user/checkNickName.json" security="none"></http>
+	<http pattern="/service/user/create.json" security="none"></http>
+	<http pattern="/service/ent/checkName.json" security="none"></http>
+	<http pattern="/service/user/createForNewEnt.json" security="none"></http>
+	<http pattern="/service/user/forgotPassword.json" security="none"></http>
+	<http pattern="/service/user/checkForgotCode.json" security="none"></http>
+	<http pattern="/service/user/invalidSession.json" security="none"></http>
+	<http pattern="/service/user/resetPassword.json" security="none"></http>
+	<http pattern="/service/group/activeGroup" security="none"></http>
+	<http pattern="/service/user/personalRegist.json" security="none"></http>
+	<http pattern="/service/user/enterpriseRegist.json" security="none"></http>
+	<!-- 注册协议查看 -->
+	<http pattern="/service/user/getUserAgreement.json" security="none"></http>
+	<http pattern="/service/user/getUserAgreement" security="none"></http>
+	<!-- 一期暂时不开发 -->
+	<http pattern="/portal/regist/personal" security="none"></http>
+	<http pattern="/portal/regist/enterprise" security="none"></http> 
+	<http pattern="/service/user/createUser.json" security="none"></http>
+	
+<!--  	<http pattern="/service/file/uploadFace.json" security="none"></http> -->
+	<http pattern="/portal/logout" security="none"></http>
+	<http pattern="/portal/invalidSession" security="none"></http>
+	<http pattern="/portal/intro/*" security="none"></http>
+	<http pattern="/portal/regist/enterpriseRegist" security="none"></http>
+	<http pattern="/portal/regist/activation" security="none"></http>
+	<http pattern="/portal/regist/info" security="none"></http>
+	<http pattern="/portal/regist/infoForCorp" security="none"></http>
+	<http pattern="/portal/regist/infoForNewCorp" security="none"></http>
+	<http pattern="/portal/regist/forgotPassword" security="none"></http>
+	<http pattern="/portal/regist/resetPassword" security="none"></http>
+	<http pattern="/manager/**" security="none"></http>
+	<http pattern="/pub/**" security="none"></http>
+	
+	<http pattern="/interfaceUrl/**" security="none"></http>
+	<http pattern="/portal/regist/fsnsLogin" security="none"></http>
+	<http pattern="/portal/regist/enterpriseRegisterSuccess" security="none"></http>
+	<http pattern="/portal/regist/enterpriseRegistOne" security="none"></http>
+	<http pattern="/portal/regist/enterpriseRegistTwo" security="none"></http>
+	<http pattern="/portal/regist/enterpriseRegistThree" security="none"></http>
+	<http pattern="/portal/regist/enterpriseRegistFour" security="none"></http>
+	<http pattern="/portal/regist/enterpriseRegistFive" security="none"></http>
+	
+	<http pattern="/portal/ErrorPage" security="none"></http>
+	<http pattern="/portal/regist/personalOne" security="none"></http>
+	<http pattern="/portal/regist/personalTwo" security="none"></http>
+	<http pattern="/portal/regist/personalThree" security="none"></http>
+	<http pattern="/service/random/getRandom.json" security="none"></http>
+	<http pattern="/service/url/loginregistUrl.json" security="none"></http>
+	
+	<http pattern="/service/login/loginEvent.json" security="none"></http>
+	<http pattern="/portal/login_new" security="none"></http>
+	<http pattern="/portal/login_hy" security="none"></http>
+	<http pattern="/portal/regist/loginEnterprise_wangyin" security="none"></http>
+	<http pattern="/portal/regist/loginEnterprise_wangyin2" security="none"></http>
+	
+	<http pattern="/portal/pop/editFace" security="none"></http>
+	<http pattern="/service/appendix/**" security="none"></http>
+	
+	<!-- 测试 -->
+	<http pattern="/portal/app/testJoltPool" security="none"></http>
+	<http pattern="/portal/pop/importFiles" security="none"></http>
+	<http pattern="/portal/simpleQuery/simpleQuery" security="none"></http>
+	
+	<!--  oauth协议内容不做session验证 -->
+	<http pattern="/oAuth/*" security="none"></http>
+	
+	<!--  个人空间不做登陆验证 -->
+	<!-- 一期不做游客
+	<http pattern="/portal/others/enterprise/index" security="none"></http>
+	<http pattern="/portal/others/personal/index" security="none"></http>
+	 -->
+	
+	<http pattern="/portal/otherPerson/**" security="none"></http>
+	<http pattern="/portal/otherEnterprise/**" security="none"></http>
+    <http pattern="/portal/appStore/fundStore_bind" security="none"></http>
+	<http pattern="/portal/appStore/wyd1" security="none"></http>
+	
+	<http auto-config="true" pattern="/service/**">
+		<intercept-url pattern="/service/**" access="ROLE_USER"/>
+		<anonymous enabled="false"/>
+		<http-basic/>
+		<form-login login-page="/pub/index/home" authentication-success-handler-ref="loginHandler" />
+		<logout delete-cookies="JSESSIONID" logout-success-url="/pub/redirect/logout" />
+
+	</http>
+	
+	 <http auto-config="true">
+		<intercept-url pattern="/manage/**" access="ROLE_USER"/>
+		<intercept-url pattern="/portal/**" access="ROLE_USER"/>
+		<intercept-url pattern="/platform/**" access="ROLE_MANAGER"/>
+		<remember-me data-source-ref="dataSource"/>
+		<form-login login-page="/pub/index/home" authentication-success-handler-ref="loginHandler"/>
+		<logout delete-cookies="JSESSIONID" logout-success-url="/pub/redirect/logout"  /> <!-- -->
+		<session-management invalid-session-url="/pub/redirect/timeout">
+			<concurrency-control session-registry-alias="sessionManager" max-sessions="1" expired-url="/pub/index/logoutPage"/>
+		</session-management>
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider user-service-ref="userRepository">
+			<!-- <password-encoder hash="sha">
+				<salt-source user-property="id"/>
+			</password-encoder> -->
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>

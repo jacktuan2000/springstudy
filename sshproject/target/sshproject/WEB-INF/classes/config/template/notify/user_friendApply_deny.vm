@@ -1,0 +1,8 @@
+<html>
+<body>
+<div>
+<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>拒绝添加您为好友！  
+</div>
+</body>
+</html>
+

@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>在<a href="${velocityFunctions.getRootUrl()}${velocityFunctions.getGroupHomeLink()}?groupId=${groupId}">${velocityFunctions.getGroupName(${groupId})}</a>组发起了任务提醒，任务名称：<a onclick='Fsns.utils.toPage(26,{eventId:"${eventId}"});'>${taskName}</a>，结束时间：${endDate}  
+</div>
+</body>
+</html>

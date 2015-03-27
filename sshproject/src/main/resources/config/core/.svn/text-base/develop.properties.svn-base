@@ -1,0 +1,76 @@
+#\u6570\u636e\u5e93\u914d\u7f6e(Mysql)
+
+#hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+#jdbc.driver = com.mysql.jdbc.Driver
+#jdbc.url = jdbc:mysql://128.128.86.121:3306/belink06
+#jdbc.username = root
+#jdbc.pswd = root
+
+
+#oracle
+hibernate.dialect = org.hibernate.dialect.Oracle10gDialect
+jdbc.driver = oracle.jdbc.driver.OracleDriver
+#jdbc.url = jdbc\:oracle\:thin\:@127.0.0.1\:1521\:orcl
+#jdbc.username = ycnet
+#jdbc.pswd = 123456
+jdbc.url = jdbc\:oracle\:thin\:@128.128.97.40\:1521\:fsnsdb
+jdbc.username = fsnsDev2
+jdbc.pswd = fsnsDev2
+#jdbc.username = fsnsSIT
+#jdbc.pswd = fsnsSIT
+
+jdbc.pool.min_size=10
+jdbc.pool.max_size=30
+jdbc.pool.timeout=900
+jdbc.pool.max_statements=30
+
+#queue.rabbit.host =127.0.0.1
+queue.rabbit.host =127.0.0.1
+
+hibernate.show_sql = true
+
+hibernate.search.index = ./app/temp
+
+#mysql
+hibernate.dialect2 = org.hibernate.dialect.MySQL5Dialect
+jdbc.driver2 = com.mysql.jdbc.Driver
+jdbc.url2 = jdbc:mysql://192.168.65.77:3306/fsns-belink?useUnicode\=true&characterEncoding\=UTF-8
+jdbc.username2 = root
+jdbc.pswd2 =belink
+
+jdbc.pool.min_size2=10
+jdbc.pool.max_size2=30
+jdbc.pool.timeout2=900
+jdbc.pool.max_statements2=30
+
+
+#hibernate.dialect2 = org.hibernate.dialect.MySQL5Dialect
+#jdbc.driver2 = com.mysql.jdbc.Driver
+#jdbc.url2 = jdbc:mysql://127.0.0.1:3306/belink60
+#jdbc.username2 = root
+#jdbc.pswd2 = 123456
+#
+#jdbc.pool.min_size2=5
+#jdbc.pool.max_size2=20
+#jdbc.pool.timeout2=1800
+#jdbc.pool.max_statements2=50
+
+
+#hibernate.show_sql = true
+
+#hibernate.search.index = /app/temp
+
+#\u6570\u636e\u5e93\u914d\u7f6e(Derby)
+#jdbc.dialect = org.hibernate.dialect.DerbyDialect
+#jdbc.driver = org.apache.derby.jdbc.EmbeddedDriver
+#jdbc.url = jdbc:derby:amp4;create=true
+#jdbc.username = 
+#jdbc.pswd = 
+jdbc.url.junit = jdbc\:oracle\:thin\:@128.128.97.40\:1521\:fsnsdb
+jdbc.username.junit = junit
+jdbc.pswd.junit = junit
+
+
+jdbc.url2.junit = jdbc:mysql://128.128.97.180:3306/junit?useUnicode\=true&characterEncoding\=UTF-8
+jdbc.username2.junit = root
+jdbc.pswd2.junit = root

@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+您有新的私信！   <a onclick='Fsns.utils.toPage(26,{eventId:"${eventId}"});'>查看详情</a>
+</div>
+</body>
+</html>

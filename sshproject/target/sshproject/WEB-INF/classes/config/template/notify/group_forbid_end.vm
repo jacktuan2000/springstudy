@@ -1,0 +1,8 @@
+<!-- 商圈禁止：结束 -->
+<html>
+<body>
+<div>
+商圈<a onclick='Fsns.utils.toPage(2,{groupId:"${groupId}",checkGroupStatus:true});'>${velocityFunctions.getGroupName(${groupId})}</a>的访问与发言已恢复。
+</div>
+</body>
+</html>

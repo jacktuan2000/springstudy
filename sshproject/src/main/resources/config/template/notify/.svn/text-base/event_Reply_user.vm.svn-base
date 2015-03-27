@@ -1,0 +1,7 @@
+﻿<html>
+<body>
+<div>
+<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>回复了你的消息！   <a onclick='Fsns.utils.toPage(26,{eventId:"${eventId}"});'>查看详情</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+商圈管理员批准您加入商圈<a onclick='Fsns.utils.toPage(2,{groupId:"${groupId}",checkGroupStatus:true});'>${velocityFunctions.getGroupName(${groupId})}</a>！  
+</div>
+</body>
+</html>

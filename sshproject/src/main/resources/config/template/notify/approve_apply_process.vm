@@ -1,0 +1,15 @@
+<html>
+<body>
+<div>
+<span>${apply}<span>
+#if(${isLink}=="true")
+	#if(${type}=="group")
+		<a onclick='Fsns.utils.toPage(2,{groupId:"${id}",checkGroupStatus:true});'>查看详情</a>
+	#elseif(${type}=="app")
+		<a onclick='Fsns.utils.toPage(6103,{"appId": "${id}"});'>查看详情</a>
+	#end
+#end
+</div>
+</body>
+</html>
+

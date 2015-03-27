@@ -1,0 +1,8 @@
+<!-- 解散商圈 -->
+<html>
+<body>
+<div>
+您所在的商圈“${velocityFunctions.getGroupName(${groupId})}”已解散
+</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+我刚刚创建了企业<a href="${velocityFunctions.getEntHomeLink()}?corpId=${entId}">${velocityFunctions.getEntName(${entId})}</a>，欢迎大家加入！

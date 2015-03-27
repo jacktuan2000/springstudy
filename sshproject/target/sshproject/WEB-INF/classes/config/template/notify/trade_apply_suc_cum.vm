@@ -1,0 +1,7 @@
+﻿<html>
+<body>
+<div>
+您的交易撮合申请已经审核通过了！   <a onclick='Fsns.utils.toPage(920,{tradeId:"${tradeId}"});'>查看详情</a>
+</div>
+</body>
+</html>

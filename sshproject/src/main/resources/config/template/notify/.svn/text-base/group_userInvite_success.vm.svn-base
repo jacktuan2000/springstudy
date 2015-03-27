@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>已将您加入商圈<a onclick='Fsns.utils.toPage(2,{groupId:"${groupId}",checkGroupStatus:true});'>${velocityFunctions.getGroupName(${groupId})}</a>！  
+</div>
+</body>
+</html>

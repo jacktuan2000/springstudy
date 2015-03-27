@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+* {
+	font-family: Microsoft YaHei, Simsun;
+	font-size: 12px;
+	color: #444;
+	margin: 0;
+}
+html, body {
+	background-color: #f2f2f2;
+}
+body {
+	padding: 20px;
+}
+#wrapper {
+	background-color: #f9f9f9;
+	padding: 20px;
+}
+h1 {
+	font-size: 28px;
+	color: #0088de;
+}
+h2 {
+	margin-top: 10px;
+	font-size: 16px;
+}
+p {
+	margin-top: 5px;
+}
+em {
+	font-size: 14px;
+	font-style: normal;
+}
+.link {
+	color: #0063db;
+}
+#footer {
+	margin-top: 20px;
+	border-top: solid 1px #dedede;
+	height: 45px;
+	text-align: right;
+}
+td {
+	vertical-align: top; 
+}
+#face {
+	margin-top: 10px;
+	height: 54px;
+	width: 54px;
+}
+.button {
+	display: block;
+	width: 144px;
+	height: 24px;
+	line-height: 24px;
+	vertical-align: middle;
+	color: white;
+	text-align: center;
+	border: solid 1px #db7500;
+	background-color: #fcac00;
+	text-decoration: none;
+}
+.button:hover {
+	text-decoration: none;
+}
+</style>
+<body>
+<div id="wrapper" >
+<h1>${domain}</h1>
+<table><tr><td>
+<img id="face" src="${face}" >
+</td><td>
+<h2>Hi, ${email}！</h2>
+<p>我们公司很多人都在Belink协同社区平台了，你也赶紧的。</p> 
+<p><em>${inviter}邀请您加入${company}，您的${count}个同事已经加入Belink协同社区平台上等您交流！</em></p>
+<p style="margin-top: 15px" >欢迎使用Belink协同社区平台</p>
+<p>请点击以下按钮接受邀请（72小时内有效）</p>
+<p><a target="_blank" class="button" href="http://www.belink.com/portal/regist/activation?id=${id}">同意加入</a></p>
+<p>或者将以下链接复制到浏览器地址栏进行后续操作：</p>
+<p><a target="_blank" href="http://www.belink.com/portal/regist/activation?id=${id}">http://www.belink.com/portal/regist/activation?id=${id}</a></p>
+</td></tr></table>
+<div id="content" >
+</div>
+<div id="footer" >
+	<img src="http://www.belink.com/resources/images/mail_logo.png" />
+</div>
+</div>
+</body>
+</html>

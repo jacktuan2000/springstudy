@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+产品(${productName})的${action}${status}审核。
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+您发布的词条 <a onclick='Fsns.utils.toPage(31,{docId:"${docId}"});'>${docTitle}</a> 审核不通过。原因：${reason}
+</div>
+</body>
+</html>

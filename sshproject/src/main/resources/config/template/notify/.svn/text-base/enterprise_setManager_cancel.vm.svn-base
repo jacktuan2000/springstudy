@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+<a onclick='Fsns.utils.toPage(4,{userId:"${entId}"});'>${velocityFunctions.getEntName(${entId})}</a>企业管理员取消您企业管理员的权限！  
+</div>
+</body>
+</html>

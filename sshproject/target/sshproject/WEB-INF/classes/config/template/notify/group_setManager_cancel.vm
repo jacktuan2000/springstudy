@@ -1,0 +1,7 @@
+<html>
+<body>
+<div>
+<a onclick='Fsns.utils.toPage(2,{groupId:"${groupId}",checkGroupStatus:true});'>${velocityFunctions.getGroupName(${groupId})}</a>商圈管理员取消您商圈管理员的权限！  
+</div>
+</body>
+</html>

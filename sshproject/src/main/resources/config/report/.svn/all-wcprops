@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report
+END
+groupCount.xls
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report/groupCount.xls
+END
+accessUserCount.xls
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report/accessUserCount.xls
+END
+visitCount.xls
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report/visitCount.xls
+END
+eventCount.xls
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report/eventCount.xls
+END
+errorCount.xls
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report/errorCount.xls
+END
+atCount.xls
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report/atCount.xls
+END
+onlineCount.xls
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report/onlineCount.xls
+END
+conversationCount.xls
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/usvn/svn/citysystem/!svn/ver/6557/trunk/community/src/main/resources/config/report/conversationCount.xls
+END
