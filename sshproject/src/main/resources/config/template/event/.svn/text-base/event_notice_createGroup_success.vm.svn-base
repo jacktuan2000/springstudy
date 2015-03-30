@@ -1,1 +1,0 @@
-﻿我刚刚创建了商圈<a href="${velocityFunctions.getGroupHomeLink()}?groupId=${groupId}">${velocityFunctions.getGroupName(${groupId})}</a>，欢迎大家加入！

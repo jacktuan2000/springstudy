@@ -1,7 +1,0 @@
-<html>
-<body>
-<div>
-商圈 <a onclick='Fsns.utils.toPage(2,{groupId:"${groupId}",checkGroupStatus:true});'>${velocityFunctions.getGroupName(${groupId})}</a>的访问与发言已恢复，解禁理由：${reason} 
-</div>
-</body>
-</html>

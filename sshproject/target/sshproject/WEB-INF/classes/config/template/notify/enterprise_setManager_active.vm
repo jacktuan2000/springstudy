@@ -1,7 +1,0 @@
-<html>
-<body>
-<div>
-<a onclick='Fsns.utils.toPage(4,{userId:"${entId}"});'>${velocityFunctions.getEntName(${entId})}</a>企业管理员设置您为企业管理员！  
-</div>
-</body>
-</html>

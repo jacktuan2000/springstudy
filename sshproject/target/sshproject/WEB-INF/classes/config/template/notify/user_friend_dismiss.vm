@@ -1,8 +1,0 @@
-<html>
-<body>
-<div>
-<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>与您解除商友关系！  
-</div>
-</body>
-</html>
-

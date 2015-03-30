@@ -1,7 +1,0 @@
-<html>
-<body>
-<div>
-您发布的词条 <a onclick='Fsns.utils.toPage(31,{docId:"${docId}"});'>${docTitle}</a> 已经通过审核。
-</div>
-</body>
-</html>

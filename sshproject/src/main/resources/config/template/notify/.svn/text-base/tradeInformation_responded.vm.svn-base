@@ -1,8 +1,0 @@
-﻿<html>
-<body>
-<div>
-<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>
-查看了您响应‘${velocityFunctions.getTradeDemand(${tradeId})}’的信息，您可以私信联系Ta哦。
-</div>
-</body>
-</html>

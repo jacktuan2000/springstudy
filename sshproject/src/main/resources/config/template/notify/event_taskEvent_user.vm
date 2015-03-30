@@ -1,7 +1,0 @@
-<html>
-<body>
-<div>
-<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>在<a onclick='Fsns.utils.toPage(26,{eventId:"${eventId}"});'>${taskName}</a>中指定您为任务负责人！  
-</div>
-</body>
-</html>

@@ -1,8 +1,0 @@
-<html>
-<body>
-<div>
-<a onclick='Fsns.utils.toPage(41,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>同意成为您的客户经理！  
-</div>
-</body>
-</html>
-

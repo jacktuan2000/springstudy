@@ -1,8 +1,0 @@
-<html>
-<body>
-<div>
-您不再是<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>的客户！  
-</div>
-</body>
-</html>
-

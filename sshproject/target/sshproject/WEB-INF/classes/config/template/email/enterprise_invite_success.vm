@@ -1,9 +1,0 @@
-<html>
-<body>
-<h3>Hi,您好</h3>
-<div>
-${nickName},您已经成功加入Belink社区企业 ${company}！
-
-</div>
-</body>
-</html>

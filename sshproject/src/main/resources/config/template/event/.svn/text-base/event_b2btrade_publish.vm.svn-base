@@ -1,1 +1,0 @@
-﻿善融商城${velocityFunctions.getTypeName(${TRADETYPE})}：${TITLE}。<a href="${velocityFunctions.getTradeLink_B2B()}">详情</a> 

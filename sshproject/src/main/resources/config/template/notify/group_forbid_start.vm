@@ -1,7 +1,0 @@
-<html>
-<body>
-<div>
-您所在的商圈<a onclick='Fsns.utils.toPage(2,{groupId:"${groupId}",checkGroupStatus:true});'>${velocityFunctions.getGroupName(${groupId})}</a>已被管理员屏蔽，#if(${days}!=0) 期限：${days}天，#end 屏蔽理由：${reason}
-</div>
-</body>
-</html>

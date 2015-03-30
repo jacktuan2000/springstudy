@@ -1,9 +1,0 @@
-<html>
-<body>
-<h3>Hi,您好</h3>
-<div>
-${inviter},您已经成功加入Belink社区企业 ${company} 中的 ${group} 群组！
-
-</div>
-</body>
-</html>

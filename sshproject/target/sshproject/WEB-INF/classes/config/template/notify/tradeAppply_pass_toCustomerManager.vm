@@ -1,7 +1,0 @@
-<html>
-<body>
-<div>
-您的客户 <a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>，他的交易撮合申请已经审核通过了！ <a onclick='Fsns.utils.toPage(95);'>查看详情</a>
-</div>
-</body>
-</html>

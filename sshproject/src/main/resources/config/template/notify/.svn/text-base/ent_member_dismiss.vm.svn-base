@@ -1,8 +1,0 @@
-<html>
-<body>
-<div>
-<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>取消您的企业成员资格！  
-</div>
-</body>
-</html>
-

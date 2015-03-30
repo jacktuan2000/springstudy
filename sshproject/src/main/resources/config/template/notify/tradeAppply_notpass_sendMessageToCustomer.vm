@@ -1,7 +1,0 @@
-<html>
-<body>
-<div>
-您的交易撮合申请没有通过审核！ <a onclick='Fsns.utils.toPage(93);'>查看详情</a> 原因：${reason}
-</div>
-</body>
-</html>

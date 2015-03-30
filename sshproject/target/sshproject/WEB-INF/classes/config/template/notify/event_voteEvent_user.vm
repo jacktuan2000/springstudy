@@ -1,7 +1,0 @@
-<html>
-<body>
-<div>
-<a onclick='Fsns.utils.toPage(4,{userId:"${userId}"});'>${velocityFunctions.getUserName(${userId})}</a>参与了您发起的一个投票！   <a onclick='Fsns.utils.toPage(26,{eventId:"${eventId}"});'>查看详情</a>
-</div>
-</body>
-</html>
