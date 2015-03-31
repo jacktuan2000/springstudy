@@ -10,7 +10,6 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
       Long countByLastname(String lastname);
 	
-	  
 	  @Query("select p from Person p where p.lastname = ?1")
 	  Person findByname(String lastname);
 }

@@ -1,7 +1,11 @@
 package com.yonyou.up.service;
 
-import com.yonyou.up.domain.Person;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public interface IPersonService extends IBaseService<Person,Long>{
+import com.yonyou.up.repository.PersonRepository;
+
+
+public interface IPersonService {
+	
   public String test();
 }
