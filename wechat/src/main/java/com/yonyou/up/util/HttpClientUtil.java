@@ -8,10 +8,7 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 
 import javax.net.ssl.SSLContext;
@@ -28,7 +25,6 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -42,13 +38,18 @@ import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContexts;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.CharsetUtils;
 import org.apache.http.util.EntityUtils;
-
+//HttpClient工具类
 public class HttpClientUtil {
 	private static Integer socketTimeout = 50;
 	private static Integer connectTimeout = 6000;
@@ -99,6 +100,13 @@ public class HttpClientUtil {
 			connManager.setDefaultConnectionConfig(connectionConfig);
 			connManager.setMaxTotal(200);
 			connManager.setDefaultMaxPerRoute(20);
+			
+			client = HttpClients.custom().setConnectionManager(connManager).build();
+			requestConfig = RequestConfig.custom()
+					.setConnectionRequestTimeout(connectionRequestTimeout)
+					.setConnectTimeout(connectTimeout)
+					.setSocketTimeout(socketTimeout).build();
+			
 		} catch (KeyManagementException e) {
 
 		} catch (NoSuchAlgorithmException e) {
@@ -108,11 +116,7 @@ public class HttpClientUtil {
 
 	public HttpClientUtil() {
 		super();
-		client = HttpClients.custom().setConnectionManager(connManager).build();
-		requestConfig = RequestConfig.custom()
-				.setConnectionRequestTimeout(this.connectionRequestTimeout)
-				.setConnectTimeout(this.connectTimeout)
-				.setSocketTimeout(this.socketTimeout).build();
+		
 	}
 	// 处理get请求
 	public static String get(String url) throws HttpException, IOException
@@ -125,58 +129,9 @@ public class HttpClientUtil {
 		return get(url,contentType,encode.toString());
 	}
 	
-	// 处理get请求
-	public static String get(String url, String contentType,final String encoding)
-			throws HttpException, IOException {
-		if (url == null)
-			return null;
-		HttpRequestBase request = null;
-		String responseBody;
-
-		url = encodeURL(url.trim(), encoding);
-
-		try {
-
-			request = new HttpGet(url);
-			if (contentType != null) {
-				request.addHeader(HttpHeaders.CONTENT_TYPE, contentType);
-			}
-
-			request.setConfig(requestConfig);
-
-			ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
-
-				public String handleResponse(final HttpResponse response)
-						throws ClientProtocolException, IOException {
-					int status = response.getStatusLine().getStatusCode();
-					if (status >= 200 && status < 300) {
-						HttpEntity entity = response.getEntity();
-						return entity != null ? EntityUtils.toString(entity,encoding)
-								: null;
-					} else {
-						throw new ClientProtocolException(
-								"Unexpected response status: " + status);
-					}
-				}
-
-			};
-
-			responseBody = client.execute(request, responseHandler);
-
-		} finally {
-			if (request != null)
-				request.releaseConnection();
-		}
-		return responseBody;
-	}
-	
 	// post
     public static String postUrl(String url,String body) throws HttpException, IOException {
-       
-    	BasicNameValuePair bnvp = new BasicNameValuePair("body", body);
-    	List<NameValuePair>  postbody=new ArrayList<NameValuePair> ();
-    	postbody.add(bnvp);
-        return post(url,postbody,CONTENT_TYPE,encode.toString());
+        return post(url,body,CONTENT_TYPE,encode.toString());
     }
 	
 	// post
@@ -189,14 +144,6 @@ public class HttpClientUtil {
         return post(url,body,contentType,encode.toString());
     }
 	
-	// post
-    public static String post(String url,String body,String contentType,final String encoding) throws HttpException, IOException {
-    	BasicNameValuePair bnvp = new BasicNameValuePair("body", body);
-    	List<NameValuePair>  postbody=new ArrayList<NameValuePair> ();
-    	postbody.add(bnvp);
-        return post(url,postbody,CONTENT_TYPE,encode.toString());
-    }
-	
     // 使用post方式，发布对象转成的xml给Rest服务
     public static String postXml(String url, String xmlBody) throws HttpException, IOException {
         return post(url, xmlBody, "application/xml");
@@ -207,8 +154,55 @@ public class HttpClientUtil {
         return post(url, jsonBody, "application/json");
     }
     
+ // 处理get请求
+ 	public static String get(String url, String contentType,final String encoding)
+ 			throws HttpException, IOException {
+ 		if (url == null)
+ 			return null;
+ 		HttpRequestBase request  = null;
+ 		String responseBody;
+ 		
+ 		if (url == null)
+ 			return null;
+ 		url = encodeURL(url.trim(), encoding);
+
+ 		try {
+
+ 			request = new HttpGet(url);
+ 			if (contentType != null) {
+ 				request.addHeader(HttpHeaders.CONTENT_TYPE, contentType);
+ 			}
+
+ 			request.setConfig(requestConfig);
+
+ 			ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
+
+ 				public String handleResponse(final HttpResponse response)
+ 						throws ClientProtocolException, IOException {
+ 					int status = response.getStatusLine().getStatusCode();
+ 					if (status >= 200 && status < 300) {
+ 						HttpEntity entity = response.getEntity();
+ 						return entity != null ? EntityUtils.toString(entity,encoding)
+ 								: null;
+ 					} else {
+ 						throw new ClientProtocolException(
+ 								"Unexpected response status: " + status);
+ 					}
+ 				}
+
+ 			};
+
+ 			responseBody = client.execute(request, responseHandler);
+
+ 		} finally {
+ 			if (request != null)
+ 				request.releaseConnection();
+ 		}
+ 		return responseBody;
+ 	}
+    
 	// 处理post请求
-	public static String post(String url, List<NameValuePair> body,
+	public static String post(String url, String body,
 			String contentType,final String encoding) throws HttpException, IOException {
 
 		if (url == null)
@@ -216,42 +210,30 @@ public class HttpClientUtil {
 		url = encodeURL(url.trim(), encoding);
 		
 		String responseBody = null;
-		HttpRequestBase request = null;
-
+		CloseableHttpResponse response = null;
+		HttpPost httpPost =null;
 		try {
 
-			HttpPost httpPost = new HttpPost(url);
-			httpPost.setEntity(new UrlEncodedFormEntity(body, encode));
-			request = httpPost;
-
+		     httpPost = new HttpPost(url);
+			//httpPost.setEntity(new UrlEncodedFormEntity(body, encode));
+			httpPost.setEntity(new  StringEntity(body, encode));
+			
 			if (contentType != null) {
-				request.addHeader(HttpHeaders.CONTENT_TYPE, contentType);
+				httpPost.addHeader(HttpHeaders.CONTENT_TYPE, contentType);
 			}
 
-			request.setConfig(requestConfig);
+			httpPost.setConfig(requestConfig);
 
-			ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
-
-				public String handleResponse(final HttpResponse response)
-						throws ClientProtocolException, IOException {
-					int status = response.getStatusLine().getStatusCode();
-					if (status >= 200 && status < 300) {
-						HttpEntity entity = response.getEntity();
-						return entity != null ? EntityUtils.toString(entity,encoding)
-								: null;
-					} else {
-						throw new ClientProtocolException(
-								"Unexpected response status: " + status);
-					}
-				}
-
-			};
-
-			responseBody = client.execute(request, responseHandler);
+		    response = client.execute(httpPost);
+          
+			HttpEntity entity = response.getEntity();
+			responseBody= entity != null ? EntityUtils.toString(entity,encoding)
+					: null;
 
 		} finally {
-			if (request != null)
-				request.releaseConnection();
+			response.close();
+			if (httpPost != null)
+				httpPost.releaseConnection();
 		}
 		return responseBody;
 	}
@@ -287,6 +269,5 @@ public class HttpClientUtil {
 		}
 		return sb.toString().replaceAll("\\+", "%20");
 	}
-	
-   
+
 }
