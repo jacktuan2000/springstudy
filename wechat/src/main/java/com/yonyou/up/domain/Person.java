@@ -1,11 +1,15 @@
 package com.yonyou.up.domain;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Person extends BaseDomain{
-
+	    @NotEmpty(message="{name.not.empty}")
 	    private String firstname;
+	    
 		private String lastname;
 		
 		public String getfirstname() {

@@ -12,7 +12,7 @@ import com.yonyou.up.service.IPersonService;
 
 @RestController
 public class PersonController {
-	Logger logger = LoggerFactory.getLogger(PersonController.class);     
+	private Logger logger = LoggerFactory.getLogger(PersonController.class);     
 	@Autowired
 	private PersonRepository repository;
 	@Autowired
