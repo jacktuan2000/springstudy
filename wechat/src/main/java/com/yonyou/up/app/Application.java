@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("com.yonyou.up.repository")  
 @EnableTransactionManagement
 @EnableSpringDataWebSupport
+
 //@EnableJpaAuditing 
 public class Application extends SpringBootServletInitializer {
 
@@ -26,6 +27,7 @@ public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
+
     }
 
 }
