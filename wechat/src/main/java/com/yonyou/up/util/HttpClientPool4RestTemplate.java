@@ -118,20 +118,20 @@ public class HttpClientPool4RestTemplate {
 		  }
 	      return template;
 	}
-	public static void main(String[] args) 
-	{
-//		String ret=getRestTemplate().getForObject("http://172.20.8.155:8090/wechat/equipment/all.json", String.class);
-//		System.out.print(ret);
-	
-		
-		 HttpHeaders headers =new HttpHeaders();
-	     headers.setContentType(MediaType.APPLICATION_JSON);
-	     
-	     Equipment equipment=new Equipment();
-	     equipment.setName("li");
-	     equipment.setType("牛仔");
-	     HttpEntity request=new HttpEntity(equipment, headers);
-	     Equipment re = getRestTemplate().postForObject("http://172.20.8.155:8090/wechat/equipment/save", request, Equipment.class);
-	     System.out.print(re.getModifiedDate());
-	}
+//	public static void main(String[] args) 
+//	{
+////		String ret=getRestTemplate().getForObject("http://172.20.8.155:8090/wechat/equipment/all.json", String.class);
+////		System.out.print(ret);
+//	
+//		
+//		 HttpHeaders headers =new HttpHeaders();
+//	     headers.setContentType(MediaType.APPLICATION_JSON);
+//	     
+//	     Equipment equipment=new Equipment();
+//	     equipment.setName("li");
+//	     equipment.setType("牛仔");
+//	     HttpEntity request=new HttpEntity(equipment, headers);
+//	     Equipment re = getRestTemplate().postForObject("http://172.20.8.155:8090/wechat/equipment/save", request, Equipment.class);
+//	     System.out.print(re.getModifiedDate());
+//	}
 }

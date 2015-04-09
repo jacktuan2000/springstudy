@@ -30,13 +30,13 @@ public class PersonRepositoryTests {
 	    PersonRepository repository;
 	    
 	    RestTemplate restTemplate = new TestRestTemplate();
-
-		@Test
-		public void testRequest() throws Exception {
-			String ret=restTemplate.getForObject("http://172.20.8.155:8090/wechat/equipment/all.json", String.class);
-				
-			assertTrue(ret.contains("thinkpadE430"));
-		}
+//
+//		@Test
+//		public void testRequest() throws Exception {
+//			String ret=restTemplate.getForObject("http://172.20.8.155:8090/wechat/equipment/all.json", String.class);
+//				
+//			assertTrue(ret.contains("thinkpadE430"));
+//		}
 		
 		@Test
 		public void testFindByname() throws Exception {
