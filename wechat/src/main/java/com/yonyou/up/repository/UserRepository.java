@@ -2,8 +2,10 @@ package com.yonyou.up.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.yonyou.up.domain.Person;
+import com.yonyou.up.domain.User;
 
-public interface UserRepository  extends CrudRepository<Person, Long> {
-
+public interface UserRepository  extends CrudRepository<User, Long> {
+ 
+	public User  findByUsername(String username);
+	
 }

@@ -1,8 +1,10 @@
 package com.yonyou.up.domain;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -42,16 +44,18 @@ public class User extends BaseDomain implements UserDetails {
     private boolean enabled = true;
     //是否第一次登录
     private boolean firstLogin = true;
+    
+    @Transient
+    private   Collection<? extends GrantedAuthority>  authorities=new ArrayList<GrantedAuthority>();;
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		 return AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
+		return authorities;
 	}
 
-	
-	public Collection<? extends GrantedAuthority> setAuthorities() {
-		 return AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -131,6 +135,8 @@ public class User extends BaseDomain implements UserDetails {
 	public void setFirstLogin(boolean firstLogin) {
 		this.firstLogin = firstLogin;
 	}
+
+
 
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class ServiceInfo extends BaseDomain {
 	@Column(length=100)
@@ -24,7 +26,8 @@ public class ServiceInfo extends BaseDomain {
 	private String comment;
 	
 	@OneToOne(mappedBy = "serviceInfo")
-	transient private Reservation reservation;
+	@JsonIgnore
+    private Reservation reservation;
 
 	public String getOpenID() {
 		return openID;

@@ -33,12 +33,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
-        
-        <dependency>
+       
+         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
          </dependency>
-  <!-- 
+  <!--    
   <dependency>
     <groupId>org.springframework.security</groupId>
     <artifactId>spring-security-web</artifactId>
@@ -49,7 +49,7 @@
     <artifactId>spring-security-config</artifactId>
     <version>3.2.6.RELEASE</version>
   </dependency>
- --> 
+--> 
         <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
@@ -61,12 +61,6 @@
 		</dependency>
 		
 		
-	    <dependency>
-		    <groupId>com.microsoft.sqlserver</groupId>
-		    <artifactId>sqljdbc4</artifactId>
-		    <version>4.0</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
@@ -96,6 +90,12 @@
 		    <version>2.2.1</version>
 		</dependency>
 		
+		<dependency>
+		    <groupId>com.microsoft.sqlserver</groupId>
+		    <artifactId>sqljdbc4</artifactId>
+		    <version>4.0</version>
+		</dependency>
+		
     </dependencies>
 
     <properties>
@@ -114,7 +114,7 @@
         </plugins>
     </build>
 
-    <repositories>
+       <repositories>
         <repository>
             <id>spring-releases</id>
             <name>Spring Releases</name>
@@ -129,10 +129,11 @@
 
     <pluginRepositories>
         <pluginRepository>
-             <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/libs-release</url>
+			<id>spring-releases</id>
+             <name>Spring Releases</name>
+             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
+
   
 </project>
