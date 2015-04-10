@@ -113,7 +113,32 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-    
+            
+            <!--  发布到tomcat
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.4.5</version>
+                <configuration>
+                    <container>
+                        <containerId>tomcat8x</containerId>
+                        <home>D:/apache/apache-tomcat-8.0.20</home>
+                    </container>
+                    <configuration>
+                        <type>existing</type>
+                        <home>D:/apache/apache-tomcat-8.0.20</home>
+                    </configuration>
+                </configuration>
+                <executions>
+		        <execution>
+		            <id>tomcat-deploy</id>
+		            <phase>package</phase>
+		            <goals><goal>deploy</goal></goals>
+		        </execution>
+		    </executions> 
+          </plugin>
+          -->
+          
         </plugins>
     </build>
  <!-- 
